@@ -1,0 +1,24 @@
+input[type="text"]
+{
+    background: transparent;
+    border: none;
+    color: white;
+    width: 70%;
+    margin: 1% 2% 0 15%;
+
+    border-bottom: 1px inset white;
+    font-size: 15pt;
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        color: white;
+        opacity: 1; /* Firefox */
+    }
+    
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+        color: white;
+    }
+    
+    ::-ms-input-placeholder { /* Microsoft Edge */
+        color: white;
+    }

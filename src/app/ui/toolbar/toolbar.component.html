@@ -1,0 +1,36 @@
+<header class="mdc-top-app-bar">
+  <div class="mdc-top-app-bar__row">
+
+    <div style="width: 10%; padding: 0 2.5%;">
+      <app-menu></app-menu>
+    </div>
+    <div style="width:75%;">
+      <app-searchbox [searchTermParam]='searchparam'></app-searchbox>
+    </div>
+    <div style="padding: 0 2.5%;">
+     <a (click)="toggleIt()">
+      <i class="material-icons" style="font-size: 45px; color: white">{{toggle}}</i>
+    </a>
+      <!-- <app-create-btn></app-create-btn> -->
+    </div>
+    <!-- <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Download" alt="Download">file_download</a>
+        <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Print this page" alt="Print this page">print</a>
+        <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Bookmark this page" alt="Bookmark this page">bookmark</a> -->
+  </div>
+  <div *ngIf="IsToggled" style="width:100%; background-color:royalblue; padding: 4px 5%; font-size: 15pt">
+    <a *ngIf="!isAuthenticated" style="color:white; text-decoration:none" [routerLink]="['pages/authentication']">Log
+      in / Sign Up</a>
+    <div *ngIf="isAuthenticated">
+      <img [src]="avatar" style="height:35px; border-radius: 50%" />
+      <span> {{userName}}</span>
+
+      <span style="margin: 0 10%"><a style="color:white" [routerLink]="['pages/archive']" [queryParams]='{Author: userName}'>My
+          Articles</a></span>
+
+      <span>
+        <mat-icon (click)="goToNotificList()" style="float: right; margin-right: 9%" matBadgeColor="accent"  matBadge="{{notificationsNumber}}"
+          matBadgeOverlap="true" matBadgePosition="">notifications_active</mat-icon>
+      </span>
+    </div>
+  </div>
+</header>

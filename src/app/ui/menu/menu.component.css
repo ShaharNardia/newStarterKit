@@ -1,0 +1,13 @@
+i{
+    vertical-align: middle;
+    margin: 0 3% 0 0;
+}
+
+.mat-menu-item
+{
+    font-size: 12pt;
+}
+
+::ng-deep .cdk-overlay-pane{width: 40%;}
+::ng-deep .custom { width: 100%; padding: 5%; border-radius: 0px; }
+

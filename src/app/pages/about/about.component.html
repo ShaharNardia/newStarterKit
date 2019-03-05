@@ -1,0 +1,50 @@
+<mat-button-toggle-group aria-label="Font Style" value="userMode">
+  <mat-button-toggle (click)="checkMode($event.srcElement.innerText)" value="adminMode">Admin Mode</mat-button-toggle>
+  <mat-button-toggle (click)="checkMode($event.srcElement.innerText)" value="userMode">User Mode</mat-button-toggle>
+</mat-button-toggle-group>
+
+
+<div class="userMode" *ngIf="userMode">
+  <h1>
+    {{title}}
+  </h1>
+
+  <img class="articleImg" src="{{img}}" />
+
+  <article>
+    {{content}}
+  </article>
+
+
+  <mat-chip-list>
+    <mat-chip *ngFor="let tag of tags" [selectable]="selectable" (click)="redirectToTagResultes($event.srcElement.innerText)">
+      {{tag}}
+    </mat-chip>
+  </mat-chip-list>
+
+</div>
+
+
+<div class="adminMode" *ngIf="adminMode">
+
+  <div>
+    <h3>
+      Title </h3>
+    <input id="titleTxt" class="edit100" value="{{title}}" type="text">
+  </div>
+  <div>
+    <h3>
+      Article </h3>
+       <app-ngx-editor [placeholder]="'Enter text here...'" [spellcheck]="true" [(ngModel)]="content"></app-ngx-editor> 
+  </div>
+  <h3>
+    Tags
+  </h3>
+  <span *ngFor='let tag of tags'>
+    <input type="text" class="tag" value="{{tag}}">
+  </span>
+
+  <div style="text-align: center">
+    <button class="btn btn-success middleBtn">Update</button>
+  </div>
+</div>

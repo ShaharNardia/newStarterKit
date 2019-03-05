@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css';
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import "@material/top-app-bar/dist/mdc.top-app-bar.min.css";
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.body{
+    width: 98%;
+    margin: auto auto;
+}
+
+.tag{
+    margin: 0 0.1%;
+}
+.edit100{
+    width: 100%;
+}
+.articleImg{
+    max-width: 100%;
+}
+.middleBtn{
+    text-align: center;
+    width: 20%;
+    margin-top: 20px;
+}
+.flex-container {
+    display: flex;
+  }
+  .flex-culomn {
+      display: table-cell;
+  }
+
+  .img-wrap{
+    width: 40%;
+    height: 250px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .img-wrap > img {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    transform: translate(-50%, -50%);
+  }
+  mat-icon{
+    vertical-align: bottom;
+  }

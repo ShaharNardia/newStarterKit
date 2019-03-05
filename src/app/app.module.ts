@@ -1,0 +1,60 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToolbarComponent } from './ui/toolbar/toolbar.component';
+import { FooterComponent } from './ui/footer/footer.component';
+import { MenuComponent } from './ui/menu/menu.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactComponent } from './pages/contact/contact.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
+import { ArchiveComponent } from './pages/archive/archive.component';
+import { AuthenticationComponent } from './ui/authentication/authentication.component';
+import { MatCardModule, MatChipsModule, MatButtonToggleModule, MatFormFieldModule, MatMenuModule, MatIconModule, MatBadgeModule } from '@angular/material';
+import { MatInputModule } from '@angular/material/input';
+import { ArticleComponent } from './pages/article/article.component';
+import { AccountComponent } from './pages/account/account.component';
+import { FormsModule } from '@angular/forms';
+import { NgxEditorModule } from 'ngx-editor';
+import { HttpClientModule } from '@angular/common/http';
+import { ArticleService } from './services/article.service';
+import { ArticlesFooterComponent } from './ui/articles-footer/articles-footer.component';
+import { SearchboxComponent } from './ui/searchbox/searchbox.component';
+import { CreateBtnComponent } from './ui/create-btn/create-btn.component';
+import { SubscribeBtnComponent } from './ui/subscribe-btn/subscribe-btn.component';
+
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ToolbarComponent,
+    FooterComponent,
+    MenuComponent,
+    AboutComponent,
+    ContactComponent,
+    HomepageComponent,
+    ArchiveComponent,
+    AuthenticationComponent,
+    ArticleComponent,
+    AccountComponent,
+    ArticlesFooterComponent,
+    SearchboxComponent,
+    CreateBtnComponent,
+    SubscribeBtnComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule, NgxEditorModule,
+    BrowserAnimationsModule,
+    MatCardModule, MatChipsModule,HttpClientModule,
+    MatButtonToggleModule,
+    MatFormFieldModule, MatInputModule, MatMenuModule, FormsModule, MatIconModule, MatBadgeModule
+
+  ],
+  providers: [ArticleService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

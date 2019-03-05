@@ -1,0 +1,71 @@
+<div *ngIf="!isNewArticle">
+<mat-button-toggle-group aria-label="Font Style" value="userMode">
+  <mat-button-toggle (click)="checkMode($event.srcElement.innerText)" [checked]="adminMode">Admin Mode</mat-button-toggle>
+  <mat-button-toggle (click)="checkMode($event.srcElement.innerText)" [checked]="userMode">User Mode</mat-button-toggle>
+</mat-button-toggle-group>
+</div>
+
+<div class="userMode" *ngIf="userMode">
+    <app-subscribe-btn [subtype]='subscribeType' [subval]='subscribeVal'></app-subscribe-btn>
+  <h1>
+    {{title}}
+  </h1>
+  <div style="float:left">
+    <a [routerLink]="['/pages/archive/']" [queryParams]="{Author: author}"> {{author}} </a>
+    | <a [routerLink]="['/pages/archive/']" [queryParams]="{Category: category}"> {{category}} </a>
+
+    | {{date | date: 'dd/MM/yyyy'}}
+    | <mat-icon matBadgeColor="accent" matBadge="{{views}}" matBadgeOverlap="true" matBadgePosition="">visibility</mat-icon>
+  </div>
+
+  <img class="articleImg" src="{{img}}" />
+
+  <article>
+    {{content}}
+  </article>
+
+  <mat-chip-list>
+    <mat-chip *ngFor="let tag of tags" [selectable]="selectable" (click)="redirectToTagResultes($event.srcElement.innerText)">
+      {{tag}}
+    </mat-chip>
+  </mat-chip-list>
+</div>
+
+
+
+
+<div class="adminMode" *ngIf="adminMode">
+
+  <div>
+    <h3>
+      Title </h3>
+    <input id="titleTxt" class="edit100" value="{{title}}" type="text">
+  </div>
+  <div>
+    <h3>
+      Article </h3>
+    <textarea style="width:100%; min-height: 100pt" [placeholder]="'Enter text here...'" [spellcheck]="true"
+      [(ngModel)]="content"></textarea>
+  </div>
+  <h3>
+    Tags
+  </h3>
+  <div *ngIf="!isNewArticle">
+    <span *ngFor='let tag of tags'>
+      <input type="text" class="tag" value="{{tag}}">
+    </span>
+  </div>
+
+  <div *ngIf="isNewArticle">
+    <span>
+      <input style="width:100%" type="text" placeholder="Please use ',' between tag to tag " value="{{tag}}">
+    </span></div>
+
+  <div style="text-align: center">
+    <button class="btn btn-success middleBtn">Update</button>
+  </div>
+</div>
+
+
+
+<app-articles-footer [currentArticleId]="artId" [category]="category"></app-articles-footer>

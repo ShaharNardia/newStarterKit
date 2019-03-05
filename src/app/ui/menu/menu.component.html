@@ -1,0 +1,27 @@
+<a class="material-icons mdc-top-app-bar__navigation-icon" mat-button [matMenuTriggerFor]="menu">
+  <i class="material-icons"> menu </i>
+
+  <mat-menu #menu="matMenu" class="custom">
+    <button mat-menu-item>
+      <i class="material-icons"> home </i>
+      <a routerLink="pages/homepage">Home Page</a>
+    </button>
+
+    <button mat-menu-item>
+      <i class="material-icons"> person_pin
+      </i>
+      <a routerLink="pages/about">About</a>
+    </button>
+
+    <button mat-menu-item>
+      <i class="material-icons"> mail </i>
+      <a routerLink="pages/contact">contact</a>
+    </button>
+
+    <button *ngIf="IsAuth" (click)="logOff()" mat-menu-item>
+      <i class="material-icons"> cancel </i>
+      <a>Log Of</a>
+    </button>
+
+  </mat-menu>
+</a>
