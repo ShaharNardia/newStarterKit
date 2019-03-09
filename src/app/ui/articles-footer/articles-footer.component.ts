@@ -3,8 +3,7 @@ import { ArticleService } from 'src/app/services/article.service';
 
 @Component({
   selector: 'app-articles-footer',
-  templateUrl: './articles-footer.component.html',
-  styleUrls: ['./articles-footer.component.css']
+  templateUrl: './articles-footer.component.html'
 })
 export class ArticlesFooterComponent implements OnInit {
 

@@ -1,6 +1,6 @@
 <div>
     <input type="text" placeholder="search" #searchIt (keyup)="search(searchIt.value)" [(ngModel)]="searchTerm">
-    <i *ngIf='searchTerm != undefind && searchTerm.length > 0' (click)="search()" class="material-icons" style="vertical-align: bottom;"> search </i>
+    <i *ngIf='searchTerm.length > 0' (click)="search()" class="material-icons" style="vertical-align: bottom;"> search </i>
 </div>
 
 <!-- <form class="example-form"> -->

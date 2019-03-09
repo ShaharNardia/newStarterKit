@@ -3,8 +3,7 @@ import { SubscribeSrvcService } from 'src/app/services/subscribe-srvc.service';
 
 @Component({
   selector: 'app-subscribe-btn',
-  templateUrl: './subscribe-btn.component.html',
-  styleUrls: ['./subscribe-btn.component.css']
+  templateUrl: './subscribe-btn.component.html'
 })
 export class SubscribeBtnComponent implements OnInit {
   @Input() subval;

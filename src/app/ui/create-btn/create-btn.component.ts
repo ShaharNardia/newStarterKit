@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-create-btn',
-  templateUrl: './create-btn.component.html',
-  styleUrls: ['./create-btn.component.css']
+  templateUrl: './create-btn.component.html'
 })
 export class CreateBtnComponent implements OnInit {
 

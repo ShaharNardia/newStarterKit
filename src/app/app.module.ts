@@ -11,8 +11,16 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { ArchiveComponent } from './pages/archive/archive.component';
-import { AuthenticationComponent } from './ui/authentication/authentication.component';
-import { MatCardModule, MatChipsModule, MatButtonToggleModule, MatFormFieldModule, MatMenuModule, MatIconModule, MatBadgeModule } from '@angular/material';
+// tslint:disable-next-line:max-line-length
+import {
+  MatCardModule,
+  MatChipsModule,
+  MatButtonToggleModule,
+  MatFormFieldModule,
+  MatMenuModule,
+  MatIconModule,
+  MatBadgeModule
+} from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
 import { ArticleComponent } from './pages/article/article.component';
 import { AccountComponent } from './pages/account/account.component';
@@ -25,8 +33,6 @@ import { SearchboxComponent } from './ui/searchbox/searchbox.component';
 import { CreateBtnComponent } from './ui/create-btn/create-btn.component';
 import { SubscribeBtnComponent } from './ui/subscribe-btn/subscribe-btn.component';
 
-
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +43,6 @@ import { SubscribeBtnComponent } from './ui/subscribe-btn/subscribe-btn.componen
     ContactComponent,
     HomepageComponent,
     ArchiveComponent,
-    AuthenticationComponent,
     ArticleComponent,
     AccountComponent,
     ArticlesFooterComponent,
@@ -47,14 +52,21 @@ import { SubscribeBtnComponent } from './ui/subscribe-btn/subscribe-btn.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, NgxEditorModule,
+    AppRoutingModule,
+    NgxEditorModule,
     BrowserAnimationsModule,
-    MatCardModule, MatChipsModule,HttpClientModule,
+    MatCardModule,
+    MatChipsModule,
+    HttpClientModule,
     MatButtonToggleModule,
-    MatFormFieldModule, MatInputModule, MatMenuModule, FormsModule, MatIconModule, MatBadgeModule
-
+    MatFormFieldModule,
+    MatInputModule,
+    MatMenuModule,
+    FormsModule,
+    MatIconModule,
+    MatBadgeModule
   ],
   providers: [ArticleService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
