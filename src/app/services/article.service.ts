@@ -21,15 +21,13 @@ export class ArticleService {
   articles = [{}];
   constructor(private srv: HttpClient) {}
 
-  // If you’re using non-pretty permalinks, you should pass the REST API route as a query string parameter. 
+  // If you’re using non-pretty permalinks, you should pass the REST API route as a query string parameter.
   // The route http://oursite.com/wp-json/ in the example above would hence be
   //           http://oursite.com/?rest_route=/.
 
-
   //wpurl = 'https://www.igeekphone.com/wp-json/wp/v2/';
   //wpurl = 'http://belivindesign.com/wp-json/wp/v2/';
-    wpurl = 'https://pevly.com//wp-json/wp/v2/';
-  
+  wpurl = 'https://pevly.com//wp-json/wp/v2/';
 
   GetArticles() {
     return this.srv.get<any>(`${this.wpurl}posts/`);
@@ -39,24 +37,28 @@ export class ArticleService {
     return this.srv.get(`${this.wpurl}posts/${id}`);
   }
 
-  GetArticlesByCategory(category) {
+  GetArticlesByCategory(category: string) {
     return this.srv.get(`${this.wpurl}posts/?categories=${category}`); //posts?categories=20,30
   }
 
-  GetArticlesByAuthor(Author) {
+  GetArticlesByAuthor(Author: string) {
     return this.srv.get(`${this.wpurl}posts/?author=${Author}`);
   }
 
-  GetArticlesSearchResults(term) {
+  GetArticlesSearchResults(term: string) {
     return this.srv.get(`${this.wpurl}posts/?search=${term}`);
   }
 
-  GetArticlesByTags(tag) {
+  GetArticlesByTags(tag: string) {
     return this.srv.get(`${this.wpurl}posts/?tags=${tag}`);
   }
 
   GetArticleImg(mediaId) {
     return this.srv.get<any>(`${this.wpurl}media/${mediaId}`);
+  }
+
+  GetCategoryNameById(catId){
+    return this.srv.get<any>(`${this.wpurl}categories/${catId}`);
   }
 
   GetAllAuthors() {

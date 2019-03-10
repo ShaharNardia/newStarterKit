@@ -1,0 +1,12 @@
+<mat-button-toggle-group
+  aria-label="Font Style"
+  value="{{this.dsort}}" 
+  *ngFor="let category of categories"
+>
+  <mat-button-toggle
+    #MySCategory
+    (click)="sortIt(MySCategory.value,category.name )"
+    value="{{category.id}}"
+    >{{ category.name }}</mat-button-toggle
+  >
+</mat-button-toggle-group>

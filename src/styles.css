@@ -42,7 +42,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: 0;
   }
 
-  .img-wrap > img {
+  .img-wrap > app-article-img > img {
     display: block;
     position: absolute;
     top: 50%;

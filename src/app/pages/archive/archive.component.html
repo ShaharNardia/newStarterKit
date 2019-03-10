@@ -1,49 +1,57 @@
-<mat-button-toggle-group aria-label="Font Style" value="{{this.defaultSort}}" *ngFor="let category of categories">
-  <mat-button-toggle #MySCategory (click)="sortBy(MySCategory.value)" value="{{category.id}}">{{category.name}}</mat-button-toggle>
-</mat-button-toggle-group>
+<app-categories [dsort]="defaultSort"></app-categories>
+<app-subscribe-btn
+  *ngIf="showSubscribeBtn"
+  [subtype]="subscribeType"
+  [subval]="subscribeVal"
+></app-subscribe-btn>
 
-<app-subscribe-btn *ngIf="showSubscribeBtn" [subtype]='subscribeType' [subval]='subscribeVal'></app-subscribe-btn>
-
-
-<h3 *ngIf='sortedArticles.length == 0'>{{searchResLbl}}</h3>
-<h5 *ngIf='sortedArticles.length > 0'>{{resultsNumberFor}}</h5>
+<h3 *ngIf="sortedArticles.length == 0">{{ searchResLbl }}</h3>
+<h5 *ngIf="sortedArticles.length > 0">{{ resultsNumberFor }}</h5>
 
 <div *ngFor="let article of sortedArticles" style="margin-top: 30px">
   <mat-card style="margin-bottom: 30px">
-    <a [routerLink]="['/pages/article/',article.id]">
+    <a
+      style="text-decoration: none"
+      [routerLink]="['/pages/article/', article.id]"
+    >
       <div class="flex-container" style="width: 100%;">
-
         <div style="width: 55%; margin: 0 2.5%">
-          <h2>{{article.title}}</h2>
+          <h2>{{ article.title.rendered }}</h2>
 
           <div>
-            <a>{{article.date}}</a>
+            <a>{{ article.date | date }}</a>
           </div>
 
           <div>
-            category - <a>{{article.category}}</a>
+            category - <a>{{ article.category }}</a>
           </div>
 
           <div>
-            author - <a>{{article.author}}</a>
+            author - <a>{{ article.author }}</a>
           </div>
 
-           <!-- <div>
+          <!-- <div>
             views - <a>{{article.views}}</a>
           </div>  -->
+          <div style='    font-size: 16pt;
+          line-height: 22pt;
+          overflow: hidden;
+          height: 66pt;
+          margin-top: 20pt;'>
+              {{ article.excerpt.rendered }}
+            </div>
+        </div>
+        <div class="img-wrap">
+          <app-article-img [mediaId]="article.featured_media"></app-article-img>
         </div>
 
-       <div class="img-wrap"><img [src]='article.img' alt="" /></div> 
+       
       </div>
-    </a>
-  </mat-card>
+     
+    </a></mat-card
+  >
 </div>
 
- 
-
-
-
-
 <div style="position: fixed; bottom: 20px; left: 20px">
- <app-create-btn></app-create-btn>
+  <app-create-btn></app-create-btn>
 </div>

@@ -32,6 +32,11 @@ import { ArticlesFooterComponent } from './ui/articles-footer/articles-footer.co
 import { SearchboxComponent } from './ui/searchbox/searchbox.component';
 import { CreateBtnComponent } from './ui/create-btn/create-btn.component';
 import { SubscribeBtnComponent } from './ui/subscribe-btn/subscribe-btn.component';
+import { ArticleImgComponent } from './ui/article-img/article-img.component';
+import { ArticleAuthorComponent } from './ui/article-author/article-author.component';
+import { ArticleCategoryComponent } from './ui/article-category/article-category.component';
+import { ArticleTagsComponent } from './ui/article-tags/article-tags.component';
+import { CategoriesComponent } from './ui/categories/categories.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +53,12 @@ import { SubscribeBtnComponent } from './ui/subscribe-btn/subscribe-btn.componen
     ArticlesFooterComponent,
     SearchboxComponent,
     CreateBtnComponent,
-    SubscribeBtnComponent
+    SubscribeBtnComponent,
+    ArticleImgComponent,
+    ArticleAuthorComponent,
+    ArticleCategoryComponent,
+    ArticleTagsComponent,
+    CategoriesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,30 +6,20 @@ import { Router } from '@angular/router';
   templateUrl: './searchbox.component.html',
   styleUrls: ['./searchbox.component.css']
 })
-export class SearchboxComponent implements OnInit, OnChanges {
-  @Input() searchTermParam;
-  searchTerm = '';
-  searchTermlength = 0;
+export class SearchboxComponent implements OnInit {
+  _searchTerm: any;
+
   constructor(private router: Router) {}
 
   ngOnInit() {
-    this.searchTerm = this.searchTermParam;
+    this._searchTerm = sessionStorage.getItem('searchTerm');
   }
 
-  ngOnChanges() {
-    this.searchTerm = this.searchTermParam;
-  }
-
-  search(_searchTerm) {
-    _searchTerm = this.searchTerm;
-    if (
-      _searchTerm !== undefined &&
-      _searchTerm.length > 0 &&
-      _searchTerm.trim().length > 0
-    ) {
-      // if () {
+  search(_searchTerm: string) {
+    sessionStorage.setItem('searchTerm', _searchTerm);
+    sessionStorage.setItem('categoryIdSort', '0');
+    if (_searchTerm !== undefined && _searchTerm.trim().length > 0) {
       this.router.navigateByUrl('/pages/archive?SearchTerm=' + _searchTerm);
-      //}
     } else {
       this.router.navigateByUrl('/pages/archive');
     }
