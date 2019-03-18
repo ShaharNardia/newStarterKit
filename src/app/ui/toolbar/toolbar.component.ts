@@ -66,4 +66,8 @@ export class ToolbarComponent implements OnInit {
       console.log(this.BadgeHidden);
     }
   }
+  login() {
+    this.isAuthenticated = true;
+    this.handleHeader();
+  }
 }

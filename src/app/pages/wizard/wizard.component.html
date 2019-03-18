@@ -1,0 +1,20 @@
+
+<mat-card class="body">
+    <h1>GroupIt!</h1>
+    <div>
+    <input type="text" placeholder="Insert Here a wordpress blog url" #wpUrl />
+    <input type="button" (click)="getSiteContent(wpUrl.value)" value="insert" />
+  </div>
+
+
+  <div>
+<ul>
+      <li [ngStyle]="{'color': postsDone? 'green' :  'red', 'font-weight': 'bold'}">posts:      {{posts.length}}</li>
+      <li [ngStyle]="{'color': usersDone? 'green' :  'red', 'font-weight': 'bold'}">users:      {{users.length}}</li>
+      <li [ngStyle]="{'color': categoriesDone? 'green' :  'red', 'font-weight': 'bold'}">categories: {{categories.length}}</li>
+      <li [ngStyle]="{'color': mediaDone? 'green' :  'red', 'font-weight': 'bold'}">media:      {{media.length}}</li>
+      <li [ngStyle]="{'color': tagsDone? 'green' :  'red', 'font-weight': 'bold'}">tags:       {{tags.length}}</li>
+      <li [ngStyle]="{'color': commentsDone? 'green' :  'red', 'font-weight': 'bold'}">comments:   {{comments.length}}</li>
+    </ul>
+  </div>
+</mat-card>

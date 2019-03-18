@@ -30,11 +30,11 @@ export class CategoriesComponent implements OnInit {
     }
   }
   ngOnInit() {
-    this.srv.GetAllCategories().subscribe(catdata => {
-      this.categories = catdata;
-      const obj = this.categories[0];
-      this.categories[0] = { id: '0', name: 'All' };
-      this.categories.push({ id: obj.id.toString(), name: obj.name });
+    // this.srv.GetAllCategories(1).subscribe(catdata => {
+    //   this.categories = catdata;
+    //   const obj = this.categories[0];
+    //   this.categories[0] = { id: '0', name: 'All' };
+    //   this.categories.push({ id: obj.id.toString(), name: obj.name });
 
       this.route.queryParams.subscribe(params => {
         const Category = params['Category'];
@@ -44,6 +44,6 @@ export class CategoriesComponent implements OnInit {
           this.dsort = '0';
         }
       });
-    });
+    //});
   }
 }

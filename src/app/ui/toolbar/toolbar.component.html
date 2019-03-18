@@ -18,8 +18,13 @@
         <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Bookmark this page" alt="Bookmark this page">bookmark</a> -->
   </div>
   <div *ngIf="IsToggled" style="width:100%; background-color:royalblue; padding: 4px 5%; font-size: 15pt">
-    <a *ngIf="!isAuthenticated" style="color:white; text-decoration:none" [routerLink]="['pages/authentication']">Log
-      in / Sign Up</a>
+    <div *ngIf="!isAuthenticated" style="text-align: center; color: black;
+    padding: 25px 0;">
+    <input type="text" placeholder="User Name">  
+    <input type="password" placeholder="Password">
+    <input type="button" (click)='login()' value="Login()">
+
+    </div>
     <div *ngIf="isAuthenticated">
       <img [src]="avatar" style="height:35px; border-radius: 50%" />
       <span> {{userName}}</span>

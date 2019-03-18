@@ -27,46 +27,58 @@ export class ArticleService {
 
   //wpurl = 'https://www.igeekphone.com/wp-json/wp/v2/';
   //wpurl = 'http://belivindesign.com/wp-json/wp/v2/';
-  wpurl = 'https://pevly.com//wp-json/wp/v2/';
+  //wpurl = 'https://pevly.com//wp-json/wp/v2/';
 
-  GetArticles() {
-    return this.srv.get<any>(`${this.wpurl}posts/`);
+  GetAllArticles(index, wpurl) {
+    return this.srv.get<any>(`${wpurl}posts/?page=${index}`);
   }
 
-  GetArticleById(id) {
-    return this.srv.get(`${this.wpurl}posts/${id}`);
+  GetArticleById(id, wpurl) {
+    return this.srv.get(`${wpurl}posts/${id}`);
   }
 
-  GetArticlesByCategory(category: string) {
-    return this.srv.get(`${this.wpurl}posts/?categories=${category}`); //posts?categories=20,30
+  GetArticlesByCategory(category: string, wpurl) {
+    return this.srv.get(`${wpurl}posts/?categories=${category}`); //posts?categories=20,30
   }
 
-  GetArticlesByAuthor(Author: string) {
-    return this.srv.get(`${this.wpurl}posts/?author=${Author}`);
+  GetArticlesByAuthor(Author: string, wpurl) {
+    return this.srv.get(`${wpurl}posts/?author=${Author}`);
   }
 
-  GetArticlesSearchResults(term: string) {
-    return this.srv.get(`${this.wpurl}posts/?search=${term}`);
+  GetArticlesSearchResults(term: string, wpurl) {
+    return this.srv.get(`${wpurl}posts/?search=${term}`);
   }
 
-  GetArticlesByTags(tag: string) {
-    return this.srv.get(`${this.wpurl}posts/?tags=${tag}`);
+  GetArticlesByTags(tag: string, wpurl) {
+    return this.srv.get(`${wpurl}posts/?tags=${tag}`);
   }
 
-  GetArticleImg(mediaId) {
-    return this.srv.get<any>(`${this.wpurl}media/${mediaId}`);
+  GetArticleImg(mediaId, wpurl) {
+    return this.srv.get<any>(`${wpurl}media/${mediaId}`);
   }
 
-  GetCategoryNameById(catId){
-    return this.srv.get<any>(`${this.wpurl}categories/${catId}`);
+  GetCategoryNameById(catId, wpurl){
+    return this.srv.get<any>(`${wpurl}categories/${catId}`);
   }
 
-  GetAllAuthors() {
-    return this.srv.get(`${this.wpurl}users`);
+  GetAllUsers(index, wpurl) {
+    return this.srv.get(`${wpurl}users/?page=${index}`);
   }
 
-  GetAllCategories() {
-    return this.srv.get(`${this.wpurl}categories`);
+  GetAllTags(index, wpurl) {
+    return this.srv.get(`${wpurl}tags/?page=${index}`);
+  }
+
+  GetAllCategories(index, wpurl) {
+    return this.srv.get(`${wpurl}categories/?page=${index}`);
+  }
+
+  GetAllComments(index, wpurl) {
+    return this.srv.get(`${wpurl}comments/?page=${index}`);
+  }
+
+  GetAllMedia(index, wpurl) {
+    return this.srv.get(`${wpurl}media/?page=${index}`);
   }
 
   returnMostViewd(number, currentId) {

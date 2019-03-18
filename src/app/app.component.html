@@ -1,13 +1,7 @@
 <app-toolbar></app-toolbar>
-<div style="height:100px"></div>
-<mat-card class="body">
-    <h1>GroupIt!</h1>
-    <div>
-    <input type="text" placeholder="Insert Here a wordpress blog url" #wpUrl />
-    <input type="button" (click)="getSiteContent(wpUrl.value)" value="insert" />
-  </div>
+<mat-card>
+  <div style="height:100px"></div>
   <div class="body">
-      <router-outlet></router-outlet>
+    <router-outlet></router-outlet>
   </div>
 </mat-card>
-

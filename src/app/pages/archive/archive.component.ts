@@ -16,7 +16,7 @@ export class ArchiveComponent implements OnInit {
   defaultSort = 'All';
   subscribeType: string;
   subscribeVal: any;
-
+  index = 1;
   articles = [];
   sortedArticles: any = [];
   showSubscribeBtn: boolean;
@@ -28,19 +28,20 @@ export class ArchiveComponent implements OnInit {
     private user: UserService
   ) { }
 
-  getDate(date: any) {
-    const dateString = date;
-    const newDate = new Date(dateString);
-    return newDate;
-  }
-
+  // getDate(date: any) {
+  //   const dateString = date;
+  //   const newDate = new Date(dateString);
+  //   return newDate;
+  // }
   
-
   ngOnInit() {
-    this.articleService.GetArticles().subscribe(data=>{
-      this.setParams(true,'News Letter','','0',data);
-      this.sortedArticles = data;
-    });
+    // this.articleService.GetArticles(this.index).subscribe(data => {
+    this.setParams(true, 'News Letter', '', '0', 0);
+    //   this.checkIfhasData(data);
+    //   //this.sortedArticles = data;
+    // });
+
+   
     this.route.queryParams.subscribe(params => {
       const Author = params['Author'];
       const Category = params['Category'];
@@ -48,28 +49,28 @@ export class ArchiveComponent implements OnInit {
       const Tag = params['Tag'];
 
       if (Author !== undefined) {
-        this.articleService.GetArticlesByAuthor(Author).subscribe(data=>{
-          this.setParams(true, 'Author', Author,'0',data);
-        });
+        // this.articleService.GetArticlesByAuthor(Author).subscribe(data => {
+        //   this.setParams(true, 'Author', Author, '0', data);
+        // });
         if (Author === this.user.userNameAuth) {
           this.showSubscribeBtn = false;
         } else {
           this.showSubscribeBtn = true;
         }
       } else if (Category !== undefined) {
-        
-        
 
-        this.articleService.GetArticlesByCategory(Category).subscribe(data=>{
-          this.setParams(true, 'Category', sessionStorage.getItem('categorySort'),Category,data);
-        });
+
+
+        // this.articleService.GetArticlesByCategory(Category).subscribe(data => {
+        //   this.setParams(true, 'Category', sessionStorage.getItem('categorySort'), Category, data);
+        // });
       } else if (SearchTerm !== undefined) {
-        
-        this.articleService
-          .GetArticlesSearchResults(SearchTerm)
-          .subscribe(data => {
-            this.setParams(true, 'SearchTerm', SearchTerm,'0', data);
-          });
+
+        // this.articleService
+        //   .GetArticlesSearchResults(SearchTerm)
+        //   .subscribe(data => {
+        //     this.setParams(true, 'SearchTerm', SearchTerm, '0', data);
+        //   });
         this.resultsNumberFor = `we found ${
           this.sortedArticles.length
           } results for '${SearchTerm}'`;
@@ -78,18 +79,18 @@ export class ArchiveComponent implements OnInit {
       } else if (SearchTerm === undefined) {
         this.resultsNumberFor = '';
       } else if (Tag !== undefined) {
-        this.articleService.GetArticlesByTags(Tag).subscribe(data => {
-          this.setParams(true, 'Tag', Tag, '0',data);
-        });
+        // this.articleService.GetArticlesByTags(Tag).subscribe(data => {
+        //   this.setParams(true, 'Tag', Tag, '0', data);
+       // });
         this.resultsNumberFor = `here ${
           this.sortedArticles.length
           } articles with tag '${Tag}'`;
         this.searchResLbl = ``;
         this.searchTerm = '';
       } else {
-        this.articleService.GetArticles().subscribe(data => {
-          this.setParams(true, 'Daily', 'NewsLetter','',data);
-        });
+        // this.articleService.GetAllArticles(this.index).subscribe(data => {
+        //   this.setParams(true, 'Daily', 'NewsLetter', '', data);
+        // });
       }
     });
   }
@@ -104,7 +105,9 @@ export class ArchiveComponent implements OnInit {
     this.showSubscribeBtn = _showSubscribeBtn;
     this.subscribeType = _subscribeType;
     this.subscribeVal = _subscribeVal;
-    this.sortedArticles = _sortedArticles;
+    if (_sortedArticles !== 0) {
+      this.sortedArticles = _sortedArticles;
+    }
     if (_defaultSort !== '') {
       this.defaultSort = _defaultSort;
     }

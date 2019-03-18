@@ -37,6 +37,8 @@ import { ArticleAuthorComponent } from './ui/article-author/article-author.compo
 import { ArticleCategoryComponent } from './ui/article-category/article-category.component';
 import { ArticleTagsComponent } from './ui/article-tags/article-tags.component';
 import { CategoriesComponent } from './ui/categories/categories.component';
+import { ImgNullPipe } from './pipes/img-null.pipe';
+import { WizardComponent } from './pages/wizard/wizard.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { CategoriesComponent } from './ui/categories/categories.component';
     ArticleAuthorComponent,
     ArticleCategoryComponent,
     ArticleTagsComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    ImgNullPipe,
+    WizardComponent
   ],
   imports: [
     BrowserModule,

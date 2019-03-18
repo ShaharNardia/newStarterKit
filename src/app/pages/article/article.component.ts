@@ -31,9 +31,9 @@ export class ArticleComponent implements OnInit {
   getCurrentArticle() {
     this.isNewArticle = false;
     this.artId = this.router.snapshot.params.id;
-    this.articleService.GetArticleById(this.artId).subscribe(data=>{
-      this.article = data;
-    });
+    // this.articleService.GetArticleById(this.artId).subscribe(data=>{
+    //   this.article = data;
+    // });
     this.title = this.article[0].title;
     this.views = this.article[0].views;
     this.author = this.article[0].author;

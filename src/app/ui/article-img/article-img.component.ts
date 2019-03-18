@@ -11,11 +11,16 @@ export class ArticleImgComponent implements OnInit {
   mediaId;
 
   ImgSrc;
-  constructor(private srv: ArticleService) {}
+  constructor(private srv: ArticleService) { }
 
   ngOnInit() {
-    this.srv.GetArticleImg(this.mediaId).subscribe(data => {
-      this.ImgSrc = data.guid.rendered;
-    });
+    if (this.mediaId > 0) {
+      // // this.srv.GetArticleImg(this.mediaId).subscribe(data => {
+      // //   this.ImgSrc = data.guid.rendered;
+      // });
+    }
+    else{
+      this.ImgSrc = 'https://add2cart.co.il/wp-content/uploads/2017/05/5.jpg';
+    }
   }
 }
