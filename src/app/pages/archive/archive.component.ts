@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ArticleService } from 'src/app/services/article.service';
+import { PostService } from 'src/app/services/postsvc.service';
 import { Router, Route, ActivatedRoute } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
@@ -17,12 +17,12 @@ export class ArchiveComponent implements OnInit {
   subscribeType: string;
   subscribeVal: any;
   index = 1;
-  articles = [];
-  sortedArticles: any = [];
+  Posts = [];
+  sortedPosts: any = [];
   showSubscribeBtn: boolean;
 
   constructor(
-    private articleService: ArticleService,
+    private PostService: PostService,
     private router: Router,
     private route: ActivatedRoute,
     private user: UserService
@@ -35,10 +35,10 @@ export class ArchiveComponent implements OnInit {
   // }
   
   ngOnInit() {
-    // this.articleService.GetArticles(this.index).subscribe(data => {
+    // this.PostService.GetPosts(this.index).subscribe(data => {
     this.setParams(true, 'News Letter', '', '0', 0);
     //   this.checkIfhasData(data);
-    //   //this.sortedArticles = data;
+    //   //this.sortedPosts = data;
     // });
 
    
@@ -49,7 +49,7 @@ export class ArchiveComponent implements OnInit {
       const Tag = params['Tag'];
 
       if (Author !== undefined) {
-        // this.articleService.GetArticlesByAuthor(Author).subscribe(data => {
+        // this.PostService.GetPostsByAuthor(Author).subscribe(data => {
         //   this.setParams(true, 'Author', Author, '0', data);
         // });
         if (Author === this.user.userNameAuth) {
@@ -61,34 +61,34 @@ export class ArchiveComponent implements OnInit {
 
 
 
-        // this.articleService.GetArticlesByCategory(Category).subscribe(data => {
+        // this.PostService.GetPostsByCategory(Category).subscribe(data => {
         //   this.setParams(true, 'Category', sessionStorage.getItem('categorySort'), Category, data);
         // });
       } else if (SearchTerm !== undefined) {
 
-        // this.articleService
-        //   .GetArticlesSearchResults(SearchTerm)
+        // this.PostService
+        //   .GetPostsSearchResults(SearchTerm)
         //   .subscribe(data => {
         //     this.setParams(true, 'SearchTerm', SearchTerm, '0', data);
         //   });
         this.resultsNumberFor = `we found ${
-          this.sortedArticles.length
+          this.sortedPosts.length
           } results for '${SearchTerm}'`;
         this.searchResLbl = `sorry, we could not find '${SearchTerm}' , please search other term...`;
         this.searchTerm = SearchTerm;
       } else if (SearchTerm === undefined) {
         this.resultsNumberFor = '';
       } else if (Tag !== undefined) {
-        // this.articleService.GetArticlesByTags(Tag).subscribe(data => {
+        // this.PostService.GetPostsByTags(Tag).subscribe(data => {
         //   this.setParams(true, 'Tag', Tag, '0', data);
        // });
         this.resultsNumberFor = `here ${
-          this.sortedArticles.length
-          } articles with tag '${Tag}'`;
+          this.sortedPosts.length
+          } Posts with tag '${Tag}'`;
         this.searchResLbl = ``;
         this.searchTerm = '';
       } else {
-        // this.articleService.GetAllArticles(this.index).subscribe(data => {
+        // this.PostService.GetAllPosts(this.index).subscribe(data => {
         //   this.setParams(true, 'Daily', 'NewsLetter', '', data);
         // });
       }
@@ -100,13 +100,13 @@ export class ArchiveComponent implements OnInit {
     _subscribeType: string,
     _subscribeVal: string,
     _defaultSort: string,
-    _sortedArticles: any
+    _sortedPosts: any
   ) {
     this.showSubscribeBtn = _showSubscribeBtn;
     this.subscribeType = _subscribeType;
     this.subscribeVal = _subscribeVal;
-    if (_sortedArticles !== 0) {
-      this.sortedArticles = _sortedArticles;
+    if (_sortedPosts !== 0) {
+      this.sortedPosts = _sortedPosts;
     }
     if (_defaultSort !== '') {
       this.defaultSort = _defaultSort;

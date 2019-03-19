@@ -1,4 +1,4 @@
-<div *ngIf="!isNewArticle">
+<div *ngIf="!isNewPost">
 <mat-button-toggle-group aria-label="Font Style" value="userMode">
   <mat-button-toggle (click)="checkMode($event.srcElement.innerText)" [checked]="adminMode">Admin Mode</mat-button-toggle>
   <mat-button-toggle (click)="checkMode($event.srcElement.innerText)" [checked]="userMode">User Mode</mat-button-toggle>
@@ -18,11 +18,11 @@
     | <mat-icon matBadgeColor="accent" matBadge="{{views}}" matBadgeOverlap="true" matBadgePosition="">visibility</mat-icon>
   </div>
 
-  <img class="articleImg" src="{{img}}" />
+  <img class="PostImg" src="{{img}}" />
 
-  <article>
+  <div>
     {{content}}
-  </article>
+  </div>
 
   <mat-chip-list>
     <mat-chip *ngFor="let tag of tags" [selectable]="selectable" (click)="redirectToTagResultes($event.srcElement.innerText)">
@@ -43,20 +43,20 @@
   </div>
   <div>
     <h3>
-      Article </h3>
+      Post </h3>
     <textarea style="width:100%; min-height: 100pt" [placeholder]="'Enter text here...'" [spellcheck]="true"
       [(ngModel)]="content"></textarea>
   </div>
   <h3>
     Tags
   </h3>
-  <div *ngIf="!isNewArticle">
+  <div *ngIf="!isNewPost">
     <span *ngFor='let tag of tags'>
       <input type="text" class="tag" value="{{tag}}">
     </span>
   </div>
 
-  <div *ngIf="isNewArticle">
+  <div *ngIf="isNewPost">
     <span>
       <input style="width:100%" type="text" placeholder="Please use ',' between tag to tag " value="{{tag}}">
     </span></div>
@@ -68,4 +68,4 @@
 
 
 
-<app-articles-footer [currentArticleId]="artId" [category]="category"></app-articles-footer>
+<app-post-footer [currentPostId]="artId" [category]="category"></app-post-footer>

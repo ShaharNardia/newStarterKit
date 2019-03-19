@@ -1,20 +1,88 @@
-
-<mat-card class="body">
-    <h1>GroupIt!</h1>
-    <div>
-    <input type="text" placeholder="Insert Here a wordpress blog url" #wpUrl />
-    <input type="button" (click)="getSiteContent(wpUrl.value)" value="insert" />
+<mat-card class="body" style="text-align: center;">
+  <h1>GroupIt!</h1>
+  <div>
+    <input type="text" style="width:250px" placeholder="Insert Here a wordpress blog url" #wpUrl [disabled]='insertDis' />
+    <input type="button" (click)="getSiteContent(wpUrl.value)" [disabled]='insertDis' value="fetch" />
   </div>
 
+<div *ngIf='isRest' style="width:100%; background-image: url('https://h5p.org/sites/default/files/h5p/content/189352/images/file-5a8a6aa0413f2.gif');
+background-repeat: no-repeat; background-size: contain; text-align: left; background-position: right;">
+      <ul>
+      <li (click)='showPostsList = !showPostsList'
+        [ngStyle]="{'cursor' : 'pointer', 'color': postsDone? 'green' :  'red', 'font-weight': 'bold'}">posts:
+        {{posts.length}}
+        <ul style="cursor:default" *ngIf='showPostsList'>
+          <li *ngFor='let post of posts'>
+            <div [innerHtml]='post.title.rendered'></div>
+          </li>
+        </ul>
+      </li>
 
-  <div>
-<ul>
-      <li [ngStyle]="{'color': postsDone? 'green' :  'red', 'font-weight': 'bold'}">posts:      {{posts.length}}</li>
-      <li [ngStyle]="{'color': usersDone? 'green' :  'red', 'font-weight': 'bold'}">users:      {{users.length}}</li>
-      <li [ngStyle]="{'color': categoriesDone? 'green' :  'red', 'font-weight': 'bold'}">categories: {{categories.length}}</li>
-      <li [ngStyle]="{'color': mediaDone? 'green' :  'red', 'font-weight': 'bold'}">media:      {{media.length}}</li>
-      <li [ngStyle]="{'color': tagsDone? 'green' :  'red', 'font-weight': 'bold'}">tags:       {{tags.length}}</li>
-      <li [ngStyle]="{'color': commentsDone? 'green' :  'red', 'font-weight': 'bold'}">comments:   {{comments.length}}</li>
+      <li (click)='showPagesList = !showPagesList'
+      [ngStyle]="{'cursor' : 'pointer', 'color': postsDone? 'green' :  'red', 'font-weight': 'bold'}">pages:
+      {{pages.length}}
+      <ul style="cursor:default" *ngIf='showPagesList'>
+        <li *ngFor='let page of pages'>
+          <div [innerHtml]='page.title.rendered'></div>
+        </li>
+      </ul>
+    </li>
+
+
+      <li (click)='showCategoriesList = !showCategoriesList'
+        [ngStyle]="{'cursor' : 'pointer', 'color': categoriesDone? 'green' :  'red', 'font-weight': 'bold'}">categories:
+        {{categories.length}}
+        <ul style="cursor:default" *ngIf='showCategoriesList'>
+          <li *ngFor='let category of categories'>
+            <div [innerHtml]='category.name'></div>
+          </li>
+        </ul>
+      </li>
+      <li (click)='showUsersList = !showUsersList'
+        [ngStyle]="{'cursor' : 'pointer', 'color': usersDone? 'green' :  'red', 'font-weight': 'bold'}">users:
+        {{users.length}}
+        <ul style="cursor:default" *ngIf='showUsersList'>
+          <li *ngFor='let user of users'>
+            <div [innerHtml]='user.name'></div>
+          </li>
+        </ul>
+      </li>
+      <li (click)='showMediasList = !showMediasList'
+        [ngStyle]="{'cursor' : 'pointer', 'color': mediaDone? 'green' :  'red', 'font-weight': 'bold'}">media:
+        {{medias.length}}
+        <ul style="cursor:default" *ngIf='showMediasList'>
+          <li *ngFor='let media of medias'>
+            <div [innerHtml]='media.link'></div>
+          </li>
+        </ul>
+      </li>
+      <li (click)='showTagsList = !showTagsList'
+        [ngStyle]="{'cursor' : 'pointer', 'color': tagsDone? 'green' :  'red', 'font-weight': 'bold'}">tags:
+        {{tags.length}}
+        <ul style="cursor:default" *ngIf='showTagsList'>
+          <li *ngFor='let tag of tags'>
+            <div [innerHtml]='tag.name'></div>
+          </li>
+        </ul>
+      </li>
+      <li (click)='showCommentsList = !showCommentsList'
+        [ngStyle]="{'cursor' : 'pointer', 'color': commentsDone? 'green' :  'red', 'font-weight': 'bold'}">comments:
+        {{comments.length}}
+        <ul style="cursor:default" *ngIf='showCommentsList'>
+          <li *ngFor='let comment of comments'>
+            <div [innerHtml]='comment.content.rendered'></div>
+          </li>
+        </ul>
+      </li>
     </ul>
+  </div>
+  <!-- <div style="width: 40%; margin: 5%; flex-direction: row ">
+    <img src="https://h5p.org/sites/default/files/h5p/content/189352/images/file-5a8a6aa0413f2.gif" alt="">
+  </div>
+</div> -->
+  <div *ngIf='doneAndCont'>
+    would You Like To Add Another web?
+    <input type="button" value="Yes" (click)="wpUrl.value = ''; resetData()">
+
   </div>
 </mat-card>

@@ -22,7 +22,7 @@ export class AboutComponent implements OnInit {
   }
 
   redirectToTagResultes(tag) {
-    //to do - redirect to articles list that have this clicked tag
+    //to do - redirect to Posts list that have this clicked tag
   }
   checkMode(mode) {
     if (mode !== 'Admin Mode') {

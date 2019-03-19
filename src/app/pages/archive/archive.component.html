@@ -5,43 +5,43 @@
   [subval]="subscribeVal"
 ></app-subscribe-btn>
 
-<h3 *ngIf="sortedArticles.length == 0">{{ searchResLbl }}</h3>
-<h5 *ngIf="sortedArticles.length > 0">{{ resultsNumberFor }}</h5>
+<h3 *ngIf="sortedPosts.length == 0">{{ searchResLbl }}</h3>
+<h5 *ngIf="sortedPosts.length > 0">{{ resultsNumberFor }}</h5>
 
-<div *ngFor="let article of sortedArticles" style="margin-top: 30px">
+<div *ngFor="let Post of sortedPosts" style="margin-top: 30px">
   <mat-card style="margin-bottom: 30px">
     <a
       style="text-decoration: none"
-      [routerLink]="['/pages/article/', article.id]"
+      [routerLink]="['/pages/Post/', Post.id]"
     >
       <div class="flex-container" style="width: 100%;">
         <div style="width: 55%; margin: 0 2.5%">
-          <h2>{{ article.title.rendered }}</h2>
+          <h2>{{ Post.title.rendered }}</h2>
 
           <div>
-            <a>{{ article.date | date }}</a>
+            <a>{{ Post.date | date }}</a>
           </div>
 
           <div>
-            category - <a>{{ article.category }}</a>
+            category - <a>{{ Post.category }}</a>
           </div>
 
           <div>
-            author - <a>{{ article.author }}</a>
+            author - <a>{{ Post.author }}</a>
           </div>
 
           <!-- <div>
-            views - <a>{{article.views}}</a>
+            views - <a>{{Post.views}}</a>
           </div>  -->
           <div style='    font-size: 16pt;
           line-height: 22pt;
           overflow: hidden;
           height: 66pt;
-          margin-top: 20pt;' [innerHtml] = 'article.excerpt.rendered'>
+          margin-top: 20pt;' [innerHtml] = 'Post.excerpt.rendered'>
             </div>
         </div>
         <div class="img-wrap">
-          <app-article-img [mediaId]="article.featured_media"></app-article-img>
+          <app-Post-img [mediaId]="Post.featured_media"></app-Post-img>
         </div>
 
        

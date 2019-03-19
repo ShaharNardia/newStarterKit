@@ -2,4 +2,4 @@
 margin:15px 0;" [style.opacity]="opacity" [style.background-color]="bckColor"
  (click)='click()'>
  <i class="material-icons" style="vertical-align: bottom">  {{notifications}}  </i>
- {{Subscribe}} to <span *ngIf='subtype == "Article"'> this </span> {{subtype}} <span *ngIf='subtype != "Article"'> {{subval}} </span></button>
+ {{Subscribe}} to <span *ngIf='subtype == "Post"'> this </span> {{subtype}} <span *ngIf='subtype != "Post"'> {{subval}} </span></button>

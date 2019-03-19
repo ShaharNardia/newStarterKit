@@ -1,7 +1,7 @@
-import { ArticleView } from './article-view';
-import { ArticleTag } from './article-tag';
+import { PostView } from './Post-view';
+import { PostTag } from './Post-tag';
 
-export class Article {
+export class Post {
     Id: string;
     Title: string;
     Category: string;
@@ -12,7 +12,7 @@ export class Article {
     AuthorId: string;
     Views: number;
     Tags;
-    constructor(private tag: ArticleTag) {
+    constructor(private tag: PostTag) {
         this.Tags = this.tag.tags;
     }
 }

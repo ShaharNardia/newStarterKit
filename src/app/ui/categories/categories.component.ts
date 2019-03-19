@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ArticleService } from 'src/app/services/article.service';
+import { PostService } from 'src/app/services/postsvc.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ export class CategoriesComponent implements OnInit {
   dsort = '0';
   categories: any;
   constructor(
-    private srv: ArticleService,
+    private srv: PostService,
     private router: Router,
     private route: ActivatedRoute
   ) {}
