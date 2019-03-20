@@ -74,6 +74,15 @@ background-repeat: no-repeat; background-size: contain; text-align: left; backgr
           </li>
         </ul>
       </li>
+      <li (click)='showProductsList = !showProductsList'
+      [ngStyle]="{'cursor' : 'pointer', 'color': commentsDone? 'green' :  'red', 'font-weight': 'bold'}">products:
+      {{products.length}}
+      <ul style="cursor:default" *ngIf='showProductsList'>
+        <li *ngFor='let product of products'>
+          <div [innerHtml]='product.title.rendered'></div>
+        </li>
+      </ul>
+    </li>
     </ul>
   </div>
   <!-- <div style="width: 40%; margin: 5%; flex-direction: row ">

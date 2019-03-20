@@ -304,6 +304,7 @@ export class WizardComponent implements OnInit {
       else {
         this.commentsDone = true;
         this.insertDis = true;
+        console.log('go to products');
         this.getProducts(this.index);
       }
     },
@@ -311,6 +312,7 @@ export class WizardComponent implements OnInit {
         console.log(error);
         this.commentsDone = true;
         this.insertDis = true;
+        console.log('go to products');
         this.getProducts(this.index);
       });
   }

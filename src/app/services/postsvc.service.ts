@@ -34,7 +34,7 @@ export class PostService {
   }
 
   GetAllProducts(index, wpurl, sign) {
-    return this.srv.get<any>(`${wpurl}products/${sign}page=${index}`);
+    return this.srv.get<any>(`${wpurl}product/${sign}page=${index}`);
   }
   
 
