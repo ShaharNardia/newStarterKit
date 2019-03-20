@@ -3,8 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PostService} from 'src/app/services/postsvc.service';
 
 @Component({
-  selector: 'app-Post',
-  templateUrl: './Post.component.html'
+  selector: 'app-post',
+  templateUrl: './post.component.html'
 })
 export class PostComponent implements OnInit {
 

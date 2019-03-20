@@ -36,6 +36,10 @@ export class WizardComponent implements OnInit {
   commentsDone = false;
   showCommentsList = false;
 
+  products: any[] = [];
+  productsDone = false;
+  showproductsList = false;
+
   restPath = '/wp-json/wp/v2/';
   restPath2 = '/?rest_route=/wp/v2/';
   website = '';
@@ -74,7 +78,7 @@ export class WizardComponent implements OnInit {
             console.log(data);
             this.website = tempUrl;
             this.insertDis = true;
-            this.isRest =true;
+            this.isRest = true;
             this.getPosts(this.index); //starts the proccess of importing all data
           }
         },
@@ -96,6 +100,8 @@ export class WizardComponent implements OnInit {
         data => {
           if (data) {
             console.log(data);
+            this.insertDis = true;
+            this.isRest = true;
             this.website = tempUrl;
             this.getPosts(this.index); //starts the proccess of importing all data
           }
@@ -146,6 +152,12 @@ export class WizardComponent implements OnInit {
     else if (type === 'comment') {
       this.comments.push(...data);
       this.index++;
+      this.getComments(this.index);
+    }
+    else if (type === 'product') {
+      this.products.push(...data);
+      this.index++;
+      this.getProducts(this.index);
     }
   }
   getPosts(pageNumber) {
@@ -292,15 +304,37 @@ export class WizardComponent implements OnInit {
       else {
         this.commentsDone = true;
         this.insertDis = true;
-        this.doneAndCont = true;
+        this.getProducts(this.index);
       }
     },
       error => {
         console.log(error);
         this.commentsDone = true;
+        this.insertDis = true;
+        this.getProducts(this.index);
+      });
+  }
+
+
+  getProducts(pageNumber) {
+    this.PostService.GetAllProducts(pageNumber, this.website, this.sign).subscribe(data => {
+      if (data.length > 0) {
+        this.checkIfhasData(data, 'product');
+      }
+      else {
+        this.productsDone = true;
+        this.insertDis = true;
+        this.doneAndCont = true;
+      }
+    },
+      error => {
+        console.log(error);
+        this.productsDone = true;
         //this.getComments(this.index);
       });
   }
+
+
 
   resetData() {
     //this.posts = [];

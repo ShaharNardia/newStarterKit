@@ -50,7 +50,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin: 0;
   }
 
-  .img-wrap > app-Post-img > img {
+  .img-wrap > app-post-img > img {
     display: block;
     position: absolute;
     top: 50%;

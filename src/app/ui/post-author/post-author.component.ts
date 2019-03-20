@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-Post-author',
-  templateUrl: './Post-author.component.html',
-  styleUrls: ['./Post-author.component.css']
+  selector: 'app-post-author',
+  templateUrl: './post-author.component.html',
+  styleUrls: ['./post-author.component.css']
 })
 export class PostAuthorComponent implements OnInit {
 

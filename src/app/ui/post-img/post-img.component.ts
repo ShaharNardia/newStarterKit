@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import {PostService} from 'src/app/services/postsvc.service';
 
 @Component({
-  selector: 'app-Post-img',
-  templateUrl: './Post-img.component.html',
-  styleUrls: ['./Post-img.component.css']
+  selector: 'app-post-img',
+  templateUrl: './post-img.component.html',
+  styleUrls: ['./post-img.component.css']
 })
 export class PostImgComponent implements OnInit {
   @Input()

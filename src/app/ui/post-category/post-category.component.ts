@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-Post-category',
-  templateUrl: './Post-category.component.html',
-  styleUrls: ['./Post-category.component.css']
+  selector: 'app-post-category',
+  templateUrl: './post-category.component.html',
+  styleUrls: ['./post-category.component.css']
 })
 export class PostCategoryComponent implements OnInit {
 

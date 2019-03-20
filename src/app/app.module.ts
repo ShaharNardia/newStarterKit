@@ -22,7 +22,7 @@ import {
   MatBadgeModule
 } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
-import { PostComponent } from './pages/Post/Post.component';
+import { PostComponent } from './pages/post/post.component';
 import { AccountComponent } from './pages/account/account.component';
 import { FormsModule } from '@angular/forms';
 import { NgxEditorModule } from 'ngx-editor';
@@ -32,10 +32,10 @@ import { PostsFooterComponent } from './ui/post-footer/post-footer.component';
 import { SearchboxComponent } from './ui/searchbox/searchbox.component';
 import { CreateBtnComponent } from './ui/create-btn/create-btn.component';
 import { SubscribeBtnComponent } from './ui/subscribe-btn/subscribe-btn.component';
-import { PostImgComponent } from './ui/Post-img/Post-img.component';
-import { PostAuthorComponent } from './ui/Post-author/Post-author.component';
-import { PostCategoryComponent } from './ui/Post-category/Post-category.component';
-import { PostTagsComponent } from './ui/Post-tags/Post-tags.component';
+import { PostImgComponent } from './ui/post-img/post-img.component';
+import { PostAuthorComponent } from './ui/post-author/post-author.component';
+import { PostCategoryComponent } from './ui/post-category/post-category.component';
+import { PostTagsComponent } from './ui/post-tags/post-tags.component';
 import { CategoriesComponent } from './ui/categories/categories.component';
 import { ImgNullPipe } from './pipes/img-null.pipe';
 import { WizardComponent } from './pages/wizard/wizard.component';

@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutComponent } from './pages/about/about.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-import { PostComponent } from './pages/Post/Post.component';
+import { PostComponent } from './pages/post/post.component';
 import { AccountComponent } from './pages/account/account.component';
 import { ArchiveComponent } from './pages/archive/archive.component';
 import { WizardComponent } from './pages/wizard/wizard.component';

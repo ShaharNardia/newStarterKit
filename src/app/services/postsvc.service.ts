@@ -33,6 +33,11 @@ export class PostService {
     return this.srv.get<any>(`${wpurl}posts/${sign}page=${index}`);
   }
 
+  GetAllProducts(index, wpurl, sign) {
+    return this.srv.get<any>(`${wpurl}products/${sign}page=${index}`);
+  }
+  
+
   GetPostById(id, wpurl) {
     return this.srv.get<any[]>(`${wpurl}posts/${id}`);
   }

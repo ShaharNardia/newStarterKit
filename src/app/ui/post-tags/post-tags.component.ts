@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-Post-tags',
-  templateUrl: './Post-tags.component.html',
-  styleUrls: ['./Post-tags.component.css']
+  selector: 'app-post-tags',
+  templateUrl: './post-tags.component.html',
+  styleUrls: ['./post-tags.component.css']
 })
 export class PostTagsComponent implements OnInit {
 
