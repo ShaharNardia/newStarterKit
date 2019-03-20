@@ -19,7 +19,7 @@ background-repeat: no-repeat; background-size: contain; text-align: left; backgr
       </li>
 
       <li (click)='showPagesList = !showPagesList'
-      [ngStyle]="{'cursor' : 'pointer', 'color': postsDone? 'green' :  'red', 'font-weight': 'bold'}">pages:
+      [ngStyle]="{'cursor' : 'pointer', 'color': pagesDone? 'green' :  'red', 'font-weight': 'bold'}">pages:
       {{pages.length}}
       <ul style="cursor:default" *ngIf='showPagesList'>
         <li *ngFor='let page of pages'>
@@ -75,7 +75,7 @@ background-repeat: no-repeat; background-size: contain; text-align: left; backgr
         </ul>
       </li>
       <li (click)='showProductsList = !showProductsList'
-      [ngStyle]="{'cursor' : 'pointer', 'color': commentsDone? 'green' :  'red', 'font-weight': 'bold'}">products:
+      [ngStyle]="{'cursor' : 'pointer', 'color': productsDone? 'green' :  'red', 'font-weight': 'bold'}">products:
       {{products.length}}
       <ul style="cursor:default" *ngIf='showProductsList'>
         <li *ngFor='let product of products'>

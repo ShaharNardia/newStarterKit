@@ -332,7 +332,7 @@ export class WizardComponent implements OnInit {
       error => {
         console.log(error);
         this.productsDone = true;
-        //this.getComments(this.index);
+        this.doneAndCont = true;
       });
   }
 
@@ -341,6 +341,10 @@ export class WizardComponent implements OnInit {
   resetData() {
     //this.posts = [];
     this.postsDone = false;
+    //this.pages = [];
+    this.pagesDone = false;
+    //this.products = [];
+    this.productsDone = false;
     //  this.categories = [];
     this.categoriesDone = false;
     //  this.users= [];
