@@ -39,6 +39,11 @@ import { PostTagsComponent } from './ui/post-tags/post-tags.component';
 import { CategoriesComponent } from './ui/categories/categories.component';
 import { ImgNullPipe } from './pipes/img-null.pipe';
 import { WizardComponent } from './pages/wizard/wizard.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { CrudstoreService } from './services/crudstore.service';
 
 @NgModule({
   declarations: [
@@ -78,9 +83,13 @@ import { WizardComponent } from './pages/wizard/wizard.component';
     MatMenuModule,
     FormsModule,
     MatIconModule,
-    MatBadgeModule
+    MatBadgeModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule
+    
   ],
-  providers: [PostService],
+  providers: [PostService, CrudstoreService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

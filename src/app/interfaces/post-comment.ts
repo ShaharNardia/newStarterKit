@@ -13,8 +13,8 @@ export class PostComment {
         
         this.userId= this.user.Id;
         this.userFullName= this.user.firstName + ' - ' + this.user.lastName;
-        this.PostId= this.Post.Id;
-        this.PostTitle=this.Post.Title;
+        this.PostId= this.Post.id;
+        this.PostTitle=this.Post.title;
     }
     
     

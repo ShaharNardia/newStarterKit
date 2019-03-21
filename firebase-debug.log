@@ -1,0 +1,33 @@
+[debug] [2019-03-21T15:25:59.179Z] ----------------------------------------------------------------------
+[debug] [2019-03-21T15:25:59.182Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\shaharn\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-03-21T15:25:59.182Z] CLI Version:   6.3.1
+[debug] [2019-03-21T15:25:59.182Z] Platform:      win32
+[debug] [2019-03-21T15:25:59.182Z] Node Version:  v11.0.0
+[debug] [2019-03-21T15:25:59.183Z] Time:          Thu Mar 21 2019 17:25:59 GMT+0200 (GMT+02:00)
+[debug] [2019-03-21T15:25:59.183Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-03-21T15:25:59.192Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-03-21T15:25:59.193Z] > authorizing via signed-in user
+[debug] [2019-03-21T15:25:59.193Z] [iam] checking project groupit-5220c for permissions ["firebase.projects.get"]
+[debug] [2019-03-21T15:25:59.194Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/groupit-5220c:testIamPermissions  
+
+[debug] [2019-03-21T15:25:59.719Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-21T15:25:59.723Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/groupit-5220c  
+ 
+[debug] [2019-03-21T15:26:00.672Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from 'C:\Users\shaharn\Documents\GitHub\newStarterKit'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2019-03-21T15:26:01.254Z] Fetching environment
+[debug] [2019-03-21T15:26:01.256Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/615793915540:getServerAppConfig  
+ 
+[debug] [2019-03-21T15:26:01.257Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/615793915540/clients/_:getWebAppConfig  
+ 
+[debug] [2019-03-21T15:26:01.753Z] <<< HTTP RESPONSE 200
+[debug] [2019-03-21T15:26:01.753Z] Starting @google-cloud/functions-emulator
+[debug] [2019-03-21T15:26:01.875Z] <<< HTTP RESPONSE 200
+[info] i  hosting: Serving hosting files from: dist/groupit
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2019-03-21T15:26:03.796Z] Parsing function triggers
+[info] i  functions: No HTTPS functions found. Use firebase functions:shell if you would like to emulate other types of functions.
