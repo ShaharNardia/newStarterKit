@@ -180,7 +180,7 @@ export class WizardComponent implements OnInit {
           this.checkIfhasData(data, 'post');
         }
         else {
-          this.crudst.insertToDB('posts',this.posts);
+          this.crudst.insertPosts(this.posts);
           this.index = 1;
           this.postsDone = true;
           this.getPages(this.index);
@@ -190,7 +190,7 @@ export class WizardComponent implements OnInit {
       },
       error => {
        // console.log(error);
-       this.crudst.insertToDB('posts',this.posts);
+        this.crudst.insertPosts(this.posts);
         this.index = 1;
         this.postsDone = true;
      //   console.log('posts - ');
@@ -209,7 +209,6 @@ export class WizardComponent implements OnInit {
           this.checkIfhasData(data, 'page');
         }
         else {
-          this.crudst.insertToDB('pages',this.pages);
           this.index = 1;
           this.pagesDone = true;
           this.getCategories(this.index);
@@ -219,7 +218,6 @@ export class WizardComponent implements OnInit {
       },
       error => {
        // console.log(error);
-       this.crudst.insertToDB('pages',this.pages);
         this.index = 1;
         this.pagesDone = true;
         // console.log('pages - ');
@@ -236,7 +234,6 @@ export class WizardComponent implements OnInit {
           this.checkIfhasData(data, 'category');
         }
         else {
-          this.crudst.insertToDB('categories',this.categories);
           this.index = 1;
           this.categoriesDone = true;
           this.getUsers(this.index);
@@ -244,7 +241,6 @@ export class WizardComponent implements OnInit {
       },
       error => {
       //  console.log(error);
-      this.crudst.insertToDB('categories',this.categories);
         this.index = 1;
         this.categoriesDone = true;
        // console.log('categories - ');
@@ -260,7 +256,6 @@ export class WizardComponent implements OnInit {
           this.checkIfhasData(data, 'user');
         }
         else {
-          this.crudst.insertToDB('users',this.users);
           this.index = 1;
           this.usersDone = true;
           this.getMedia(this.index);
@@ -268,7 +263,6 @@ export class WizardComponent implements OnInit {
       },
       error => {
       //  console.log(error);
-      this.crudst.insertToDB('users',this.users);
         this.index = 1;
         this.usersDone = true;
         this.getMedia(this.index);
@@ -281,7 +275,6 @@ export class WizardComponent implements OnInit {
         this.checkIfhasData(data, 'media');
       }
       else {
-        this.crudst.insertToDB('medias',this.medias);
         this.index = 1;
         this.mediaDone = true;
         this.getTags(this.index);
@@ -289,7 +282,6 @@ export class WizardComponent implements OnInit {
     },
       error => {
      //   console.log(error);
-     this.crudst.insertToDB('medias',this.medias);
         this.index = 1;
         this.mediaDone = true;
         this.getTags(this.index);
@@ -303,7 +295,6 @@ export class WizardComponent implements OnInit {
         this.checkIfhasData(data, 'tag');
       }
       else {
-        this.crudst.insertToDB('tags',this.tags);
         this.index = 1;
         this.tagsDone = true;
         this.getComments(this.index);
@@ -311,7 +302,6 @@ export class WizardComponent implements OnInit {
     },
       error => {
       //  console.log(error);
-      this.crudst.insertToDB('tags',this.tags);
         this.index = 1;
         this.tagsDone = true;
         this.getComments(this.index);
@@ -324,7 +314,6 @@ export class WizardComponent implements OnInit {
         this.checkIfhasData(data, 'comment');
       }
       else {
-        this.crudst.insertToDB('comments',this.comments);
         this.commentsDone = true;
         this.insertDis = true;
       //  console.log('go to products');
@@ -333,7 +322,6 @@ export class WizardComponent implements OnInit {
     },
       error => {
       //  console.log(error);
-      this.crudst.insertToDB('comments',this.comments);
         this.commentsDone = true;
         this.insertDis = true;
        // console.log('go to products');
@@ -348,7 +336,6 @@ export class WizardComponent implements OnInit {
         this.checkIfhasData(data, 'product');
       }
       else {
-        this.crudst.insertToDB('products',this.products);
         this.productsDone = true;
         this.insertDis = true;
         this.doneAndCont = true;

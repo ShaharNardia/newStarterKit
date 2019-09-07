@@ -8,9 +8,9 @@ export class CrudstoreService {
 
   constructor(private firestore: AngularFirestore) { }
 
-  insertToDB(collectionName,documents) {
-    for (let index = 0; index < documents.length; index++) {
-      this.firestore.collection(collectionName).add(documents[index]);
+  insertPosts(posts) {
+    for (let index = 0; index < posts.length; index++) {
+      this.firestore.collection('posts').add(posts[index]);
     }
   }
 }
