@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PostService } from 'src/app/services/postsvc.service';
+import { CrudstoreService } from 'src/app/services/crudstore.service';
+import {Post} from '../../interfaces/post';
 
 @Component({
   selector: 'app-wizard',
@@ -8,7 +10,7 @@ import { PostService } from 'src/app/services/postsvc.service';
 })
 export class WizardComponent implements OnInit {
 
-  posts: any[] = [];
+  posts: Post[] = [];
   postsDone = false;
   showPostsList = false;
 
@@ -49,7 +51,7 @@ export class WizardComponent implements OnInit {
   doneAndCont = false
   isRest = false;
 
-  constructor(private PostService: PostService) { }
+  constructor(private PostService: PostService, private crudst:CrudstoreService) { }
 
   ngOnInit() {
   }
@@ -84,8 +86,8 @@ export class WizardComponent implements OnInit {
         },
         error => {
           if (error.status !== 200) {
-            console.log('This website is using non-pretty permalinks');
-            console.log('So we will try to use "/?rest_route=/wp/v2/" insted of "/wp-json/wp/v2/"....');
+           // console.log('This website is using non-pretty permalinks');
+           // console.log('So we will try to use "/?rest_route=/wp/v2/" insted of "/wp-json/wp/v2/"....');
             this.secondCheck(siteUrl);
           }
         }
@@ -99,7 +101,7 @@ export class WizardComponent implements OnInit {
       .subscribe(
         data => {
           if (data) {
-            console.log(data);
+           // console.log(data);
             this.insertDis = true;
             this.isRest = true;
             this.website = tempUrl;
@@ -108,9 +110,8 @@ export class WizardComponent implements OnInit {
         },
         error => {
           if (error.status !== 200) {
-            console.log('This website does not allow getting his data');
+          //  console.log('This website does not allow getting his data');
             this.sign = '?';
-            //this.secondCheck();
           }
         }
       )
@@ -166,9 +167,20 @@ export class WizardComponent implements OnInit {
 
 
         if (data.length > 0) {
+          console.log(data[1].id);
+          console.log(data[1].author);
+          console.log(data[1].categories);
+          console.log(data[1].title.rendered);
+          console.log(data[1].date);
+          console.log(data[1].content.rendered);
+          console.log(data[1].excerpt.rendered);
+          console.log(data[1].tags);
+          console.log(data[1].link);
+          
           this.checkIfhasData(data, 'post');
         }
         else {
+          this.crudst.insertPosts(this.posts);
           this.index = 1;
           this.postsDone = true;
           this.getPages(this.index);
@@ -177,11 +189,12 @@ export class WizardComponent implements OnInit {
 
       },
       error => {
-        console.log(error);
+       // console.log(error);
+        this.crudst.insertPosts(this.posts);
         this.index = 1;
         this.postsDone = true;
-        console.log('posts - ');
-        console.log(this.posts);
+     //   console.log('posts - ');
+     //   console.log(this.posts);
         this.getPages(this.index);
       }
     );
@@ -204,18 +217,17 @@ export class WizardComponent implements OnInit {
 
       },
       error => {
-        console.log(error);
+       // console.log(error);
         this.index = 1;
         this.pagesDone = true;
-        console.log('pages - ');
-        console.log(this.posts);
+        // console.log('pages - ');
+        // console.log(this.posts);
         this.getCategories(this.index);
       }
     );
   }
 
   getCategories(pageNumber) {
-    console.log('I am in getCategories() - ' + pageNumber);
     this.PostService.GetAllCategories(pageNumber, this.website, this.sign).subscribe(
       data => {
         if (data.length > 0) {
@@ -228,11 +240,11 @@ export class WizardComponent implements OnInit {
         }
       },
       error => {
-        console.log(error);
+      //  console.log(error);
         this.index = 1;
         this.categoriesDone = true;
-        console.log('categories - ');
-        console.log(this.categories);
+       // console.log('categories - ');
+       // console.log(this.categories);
         this.getUsers(this.index);
       });
   }
@@ -250,7 +262,7 @@ export class WizardComponent implements OnInit {
         }
       },
       error => {
-        console.log(error);
+      //  console.log(error);
         this.index = 1;
         this.usersDone = true;
         this.getMedia(this.index);
@@ -269,7 +281,7 @@ export class WizardComponent implements OnInit {
       }
     },
       error => {
-        console.log(error);
+     //   console.log(error);
         this.index = 1;
         this.mediaDone = true;
         this.getTags(this.index);
@@ -277,7 +289,7 @@ export class WizardComponent implements OnInit {
   }
 
   getTags(pageNumber) {
-    console.log(pageNumber);
+    //console.log(pageNumber);
     this.PostService.GetAllTags(pageNumber, this.website, this.sign).subscribe(data => {
       if (data.length > 0) {
         this.checkIfhasData(data, 'tag');
@@ -289,7 +301,7 @@ export class WizardComponent implements OnInit {
       }
     },
       error => {
-        console.log(error);
+      //  console.log(error);
         this.index = 1;
         this.tagsDone = true;
         this.getComments(this.index);
@@ -304,13 +316,15 @@ export class WizardComponent implements OnInit {
       else {
         this.commentsDone = true;
         this.insertDis = true;
+      //  console.log('go to products');
         this.getProducts(this.index);
       }
     },
       error => {
-        console.log(error);
+      //  console.log(error);
         this.commentsDone = true;
         this.insertDis = true;
+       // console.log('go to products');
         this.getProducts(this.index);
       });
   }
@@ -328,17 +342,19 @@ export class WizardComponent implements OnInit {
       }
     },
       error => {
-        console.log(error);
+       // console.log(error);
         this.productsDone = true;
-        //this.getComments(this.index);
+        this.doneAndCont = true;
       });
   }
-
-
 
   resetData() {
     //this.posts = [];
     this.postsDone = false;
+    //this.pages = [];
+    this.pagesDone = false;
+    //this.products = [];
+    this.productsDone = false;
     //  this.categories = [];
     this.categoriesDone = false;
     //  this.users= [];

@@ -8,8 +8,8 @@ export class PostTag {
     tags = [];
 
     constructor(private Post: Post) { 
-        this.PostId= this.Post.Id;
-        this.PostTitle=this.Post.Title;
+        this.PostId= this.Post.id;
+        this.PostTitle=this.Post.title;
     }
     
 }

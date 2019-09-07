@@ -3,21 +3,13 @@ import { TouchSequence } from 'selenium-webdriver';
 import { HttpClient } from '@angular/common/http';
 import { Post } from '../interfaces/Post';
 
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  // Posts = [{
-  //   id: 1,
-  //   category: 'Category1',
-  //   title: 'first Post',
-  //   content: '',
-  //   img: '',
-  //   date: this.getDate('1968-11-16T00:00:00'),
-  //   author: 'shahar nardia',
-  //   views: 2,
-  //   tags: ['this', 'is', 'first', 'the', 'about', 'page']
-  // }];
+  
   Posts = [{}];
   constructor(private srv: HttpClient) { }
 
@@ -30,13 +22,13 @@ export class PostService {
   //wpurl = 'https://pevly.com//wp-json/wp/v2/';
 
   GetAllPosts(index, wpurl, sign) {
-    return this.srv.get<any>(`${wpurl}posts/${sign}page=${index}`);
+    return this.srv.get<Post[]>(`${wpurl}posts/${sign}page=${index}`);
   }
 
   GetAllProducts(index, wpurl, sign) {
-    return this.srv.get<any>(`${wpurl}products/${sign}page=${index}`);
+    return this.srv.get<any>(`${wpurl}product/${sign}page=${index}`);
   }
-  
+
 
   GetPostById(id, wpurl) {
     return this.srv.get<any[]>(`${wpurl}posts/${id}`);
