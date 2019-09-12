@@ -24,9 +24,6 @@ export class PostService {
   GetAllPosts(index, wpurl, sign) {
     return this.srv.get<Post[]>(`${wpurl}posts/${sign}page=${index}`);
   }
-  GetAllSites(index, wpurl, sign) {
-    return this.srv.get<Post[]>(`${wpurl}sites/${sign}page=${index}`);
-  }
 
   GetAllProducts(index, wpurl, sign) {
     return this.srv.get<any>(`${wpurl}product/${sign}page=${index}`);

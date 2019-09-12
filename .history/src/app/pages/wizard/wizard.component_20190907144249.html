@@ -28,15 +28,6 @@ background-repeat: no-repeat; background-size: contain; text-align: left; backgr
       </ul>
     </li>
 
-    <li (click)='showSitesList = !showSitesList'
-    [ngStyle]="{'cursor' : 'pointer', 'color': sitesDone? 'green' :  'red', 'font-weight': 'bold'}">sites:
-    {{sites.length}}
-    <ul style="cursor:default" *ngIf='showSitesList'>
-      <li *ngFor='let site of sites'>
-        <div [innerHtml]='site.title.rendered'></div>
-      </li>
-    </ul>
-  </li>
 
       <li (click)='showCategoriesList = !showCategoriesList'
         [ngStyle]="{'cursor' : 'pointer', 'color': categoriesDone? 'green' :  'red', 'font-weight': 'bold'}">categories:

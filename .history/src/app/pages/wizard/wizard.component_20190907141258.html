@@ -1,5 +1,5 @@
 <mat-card class="body" style="text-align: center;">
-  <h1>GroupIt - ! - </h1>
+  <h1>GroupIt!</h1>
   <div>
     <input type="text" style="width:250px" placeholder="Insert Here a wordpress blog url" #wpUrl [disabled]='insertDis' />
     <input type="button" (click)="getSiteContent(wpUrl.value)" [disabled]='insertDis' value="fetch" />
@@ -28,15 +28,6 @@ background-repeat: no-repeat; background-size: contain; text-align: left; backgr
       </ul>
     </li>
 
-    <li (click)='showSitesList = !showSitesList'
-    [ngStyle]="{'cursor' : 'pointer', 'color': sitesDone? 'green' :  'red', 'font-weight': 'bold'}">sites:
-    {{sites.length}}
-    <ul style="cursor:default" *ngIf='showSitesList'>
-      <li *ngFor='let site of sites'>
-        <div [innerHtml]='site.title.rendered'></div>
-      </li>
-    </ul>
-  </li>
 
       <li (click)='showCategoriesList = !showCategoriesList'
         [ngStyle]="{'cursor' : 'pointer', 'color': categoriesDone? 'green' :  'red', 'font-weight': 'bold'}">categories:
